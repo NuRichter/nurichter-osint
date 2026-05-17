@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>NuRichter OSINT Recon Framework</title>
+<meta name="description" content="A comprehensive OSINT reconnaissance framework with 1167+ tools across 33 categories.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⟁</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600&family=Oxanium:wght@400;500;600;700&family=Nunito+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="noise-overlay"></div>
+
+<div class="app" id="app">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-brand">
+      <div class="brand-sigil">
+        <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="20" cy="20" r="18" stroke="var(--accent)" stroke-width="1.5" stroke-dasharray="4 3" class="sigil-ring"/>
+          <circle cx="20" cy="20" r="11" stroke="var(--accent)" stroke-width="1" opacity=".5"/>
+          <circle cx="20" cy="20" r="3" fill="var(--accent)" class="sigil-dot"/>
+          <line x1="20" y1="2" x2="20" y2="8" stroke="var(--accent)" stroke-width="1"/>
+          <line x1="20" y1="32" x2="20" y2="38" stroke="var(--accent)" stroke-width="1"/>
+          <line x1="2" y1="20" x2="8" y2="20" stroke="var(--accent)" stroke-width="1"/>
+          <line x1="32" y1="20" x2="38" y2="20" stroke="var(--accent)" stroke-width="1"/>
+        </svg>
+      </div>
+      <div class="brand-text">
+        <span class="brand-name">NuRichter</span>
+        <span class="brand-sub">OSINT Recon Framework</span>
+      </div>
+      <button class="sidebar-dismiss" id="sidebarDismiss" aria-label="Close sidebar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+
+    <div class="sidebar-search">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="text" id="treeSearch" placeholder="Filter categories..." autocomplete="off" spellcheck="false">
+    </div>
+
+    <nav class="tree-nav" id="treeNav">
+      <div class="tree-scroll" id="treeScroll"></div>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="footer-stat"><span id="footerToolCount">0</span> tools indexed</div>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main" id="main">
+
+    <header class="topbar">
+      <button class="topbar-burger" id="burgerBtn" aria-label="Open navigation">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="4" y1="6" x2="20" y2="6"/>
+          <line x1="4" y1="12" x2="16" y2="12"/>
+          <line x1="4" y1="18" x2="20" y2="18"/>
+        </svg>
+      </button>
+
+      <div class="topbar-search">
+        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" id="globalSearch" placeholder="Search tools, categories, descriptions..." autocomplete="off" spellcheck="false">
+        <kbd class="search-kbd">Ctrl K</kbd>
+      </div>
+
+      <div class="topbar-meta" id="topbarMeta">
+        <span class="meta-pip live"></span>
+        <span id="visibleCount">1167</span> / <span id="totalCount">1167</span>
+      </div>
+    </header>
+
+    <div class="filters-rail" id="filtersRail">
+      <div class="filters-scroll">
+        <button class="fil active" data-f="all">All Tools</button>
+        <span class="fil-div"></span>
+        <button class="fil" data-f="free">Free</button>
+        <button class="fil" data-f="freemium">Freemium</button>
+        <button class="fil" data-f="paid">Paid</button>
+        <span class="fil-div"></span>
+        <button class="fil" data-f="passive">Passive OPSEC</button>
+        <button class="fil" data-f="active">Active OPSEC</button>
+        <span class="fil-div"></span>
+        <button class="fil" data-f="local">Local/CLI</button>
+        <button class="fil" data-f="api">Has API</button>
+        <button class="fil" data-f="deprecated">Deprecated</button>
+      </div>
+    </div>
+
+    <div class="view-area" id="viewArea"></div>
+
+  </main>
+
+</div>
+
+<!-- DETAIL DRAWER -->
+<div class="drawer-overlay" id="drawerOverlay">
+  <div class="drawer" id="drawer">
+    <div class="drawer-inner" id="drawerInner"></div>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
